@@ -11,8 +11,8 @@ class UserRepositoryImpl implements UserRepository {
   @override
   Future<Either<Failure, List<UserModel>>> getUsers() async {
     try {
-      final remoteProducts = await userRemoteDataSource.getUsers();
-      return Right(remoteProducts);
+      final userList = await userRemoteDataSource.getUsers();
+      return Right(userList);
     } catch (e) {
       return Left(Failure(e.toString()));
     }
